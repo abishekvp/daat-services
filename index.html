@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DAAT Services | Engineering Digital Growth — India's Premier Digital Agency</title>
+  <meta name="description" content="DAAT Services architects enterprise web platforms, dominates search rankings, and creates content that converts. Full-stack digital agency built for Indian businesses.">
+  <meta property="og:title" content="DAAT Services | Engineering Digital Growth">
+  <meta property="og:description" content="Web engineering, SEO, video production, digital marketing & security — all under one roof in India.">
+  <meta property="og:image" content="assets/hero_bg.jpg">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/components.css">
+  <!-- Google Analytics 4 — replace G-XXXXXXXXXX -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script> -->
+  
+</head>
+<body>
+<div class="cursor-glow"></div>
+<div class="progress-bar"></div>
+
+<!-- ── Navigation ─────────────────────────────────────────── -->
+<nav class="nav" id="main-nav" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo" aria-label="DAAT Services Home">
+      <div class="nav-logo-icon" aria-hidden="true">DA</div>
+      DAAT Services
+    </a>
+    <div class="nav-links" role="list">
+      <a href="index.html"              class="nav-link active" role="listitem">Home</a>
+      <a href="services.html"           class="nav-link"        role="listitem">Services</a>
+      <a href="products.html"           class="nav-link"        role="listitem">Products</a>
+      <a href="education.html"          class="nav-link"        role="listitem">Education</a>
+      <a href="portfolio.html"          class="nav-link"        role="listitem">Portfolio</a>
+      <a href="pricing.html"            class="nav-link"        role="listitem">Pricing</a>
+      <a href="contact.html"            class="nav-link"        role="listitem">Contact</a>
+    </div>
+    <div class="nav-actions">
+      <a href="contact.html" class="btn btn-primary btn-sm" id="nav-cta">Start Your Project</a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Drawer -->
+<div class="nav-drawer" id="nav-drawer" aria-hidden="true">
+  <div class="nav-drawer-links">
+    <a href="index.html"             class="nav-drawer-link">Home</a>
+    <a href="services.html"          class="nav-drawer-link">Services</a>
+    <a href="products.html"          class="nav-drawer-link">Products</a>
+    <a href="education.html"         class="nav-drawer-link">Education</a>
+    <a href="portfolio.html"         class="nav-drawer-link">Portfolio</a>
+    <a href="pricing.html"           class="nav-drawer-link">Pricing</a>
+    <a href="contact.html"           class="nav-drawer-link">Contact</a>
+  </div>
+  <a href="contact.html" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:0.5rem">
+    Start Your Project →
+  </a>
+</div>
+
+<main class="page-wrapper">
+
+  <!-- ── Hero ─────────────────────────────────────────────── -->
+  <section class="hero-section" aria-label="Hero">
+
+    <!-- Layer 0: Photo base -->
+    <div class="hero-bg-img" role="img" aria-label="Professional dark studio background"></div>
+
+    <!-- Layer 1: Ambient light orbs (CSS animation, no canvas) -->
+    <div class="hero-orbs" aria-hidden="true">
+      <div class="hero-orb hero-orb-gold"></div>
+      <div class="hero-orb hero-orb-crimson"></div>
+      <div class="hero-orb hero-orb-warm"></div>
+    </div>
+
+    <!-- Layer 2: Minimal diagonal grid -->
+    <div class="hero-grid" aria-hidden="true"></div>
+
+    <!-- Layer 3: Content -->
+    <div class="container">
+      <div class="hero-content-wrap">
+
+        <!-- Professional badge -->
+        <div class="hero-badge-pro">
+          <span class="badge-dot"></span>
+          India's Premier Full-Stack Digital Agency
+        </div>
+
+        <!-- Headline -->
+        <h1 style="animation:fadeUp 0.7s 0.1s both;color:#F5F0E8">
+          Engineering Digital Growth.<br>
+          From Secure Code to<br>
+          <span class="text-gradient">Stunning Content.</span>
+        </h1>
+
+        <!-- Sub-copy -->
+        <p class="hero-sub-pro">
+          We architect enterprise-grade web platforms, dominate search rankings,
+          and produce content that converts — all under one roof in India.
+        </p>
+
+        <!-- CTAs -->
+        <div class="hero-ctas">
+          <a href="contact.html" class="btn-gold" id="cta-hero-primary">
+            Start Your Project &rarr;
+          </a>
+          <a href="portfolio.html" class="btn-crimson-outline" id="cta-hero-work">
+            View Our Work
+          </a>
+        </div>
+
+        <!-- Stats row -->
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <div class="hero-stat-val"><span data-count="150" data-suffix="+">150+</span></div>
+            <div class="hero-stat-lbl">Projects Completed</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-val"><span data-count="98" data-suffix="%">98%</span></div>
+            <div class="hero-stat-lbl">Client Retention Rate</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-val">&#8377;<span data-count="12" data-suffix="Cr+">12Cr+</span></div>
+            <div class="hero-stat-lbl">Revenue Generated</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-val"><span data-count="4" data-suffix=".9&#9733;">4.9&#9733;</span></div>
+            <div class="hero-stat-lbl">Average Client Rating</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <div class="hero-divider"></div>
+
+  <!-- ── Trust Bar ──────────────────────────────────────────── -->
+  <section class="trust-bar" aria-label="Technology stack">
+    <p class="trust-bar-label">Trusted Technologies &amp; Platforms We Deploy</p>
+    <div class="marquee-wrapper">
+      <div class="marquee-track" aria-hidden="true">
+        <!-- set 1 -->
+        <div class="marquee-item">🐍 Python</div><div class="marquee-dot"></div>
+        <div class="marquee-item">⚙️ Django</div><div class="marquee-dot"></div>
+        <div class="marquee-item">🐘 PostgreSQL</div><div class="marquee-dot"></div>
+        <div class="marquee-item">⚛️ React</div><div class="marquee-dot"></div>
+        <div class="marquee-item">☁️ AWS</div><div class="marquee-dot"></div>
+        <div class="marquee-item">🎬 DaVinci Resolve</div><div class="marquee-dot"></div>
+        <div class="marquee-item">🐳 Docker</div><div class="marquee-dot"></div>
+        <div class="marquee-item">🔴 Redis</div><div class="marquee-dot"></div>
+        <div class="marquee-item">🎨 Figma</div><div class="marquee-dot"></div>
+        <div class="marquee-item">📊 Google Analytics 4</div><div class="marquee-dot"></div>
+        <div class="marquee-item">🔐 Burp Suite</div><div class="marquee-dot"></div>
+        <div class="marquee-item">💳 Razorpay</div><div class="marquee-dot"></div>
+        <!-- set 2 (duplicate for seamless loop) -->
+        <div class="marquee-item">🐍 Python</div><div class="marquee-dot"></div>
+        <div class="marquee-item">⚙️ Django</div><div class="marquee-dot"></div>
+        <div class="marquee-item">🐘 PostgreSQL</div><div class="marquee-dot"></div>
+        <div class="marquee-item">⚛️ React</div><div class="marquee-dot"></div>
+        <div class="marquee-item">☁️ AWS</div><div class="marquee-dot"></div>
+        <div class="marquee-item">🎬 DaVinci Resolve</div><div class="marquee-dot"></div>
+        <div class="marquee-item">🐳 Docker</div><div class="marquee-dot"></div>
+        <div class="marquee-item">🔴 Redis</div><div class="marquee-dot"></div>
+        <div class="marquee-item">🎨 Figma</div><div class="marquee-dot"></div>
+        <div class="marquee-item">📊 Google Analytics 4</div><div class="marquee-dot"></div>
+        <div class="marquee-item">🔐 Burp Suite</div><div class="marquee-dot"></div>
+        <div class="marquee-item">💳 Razorpay</div><div class="marquee-dot"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Services Grid ──────────────────────────────────────── -->
+  <section class="services section" aria-labelledby="services-heading">
+    <div class="container">
+      <div class="section-header reveal" style="max-width:640px">
+        <div class="section-eyebrow">// What We Build</div>
+        <h2 id="services-heading">Full-Stack Digital Services<br>Built for <span class="text-gradient">Indian Businesses</span></h2>
+        <p>From backend architecture to viral content — every service engineered for measurable ROI.</p>
+      </div>
+
+      <div class="services-grid stagger-container">
+        <!-- Web Apps -->
+        <article class="glass-card service-card accent-cyan reveal">
+          <div class="service-icon cyan-bg">💻</div>
+          <h3>Robust Web Applications</h3>
+          <p>Django/Python backends, React frontends, scalable APIs, and zero-downtime deployments built for enterprise scale.</p>
+          <a href="services.html" class="service-card-link">Learn More →</a>
+        </article>
+
+        <!-- SEO -->
+        <article class="glass-card service-card accent-cyan reveal">
+          <div class="service-icon cyan-bg">📈</div>
+          <h3>Data-Driven SEO</h3>
+          <p>Technical audits, keyword clusters, link building, and Core Web Vitals optimization that moves rankings fast.</p>
+          <a href="services.html" class="service-card-link">Learn More →</a>
+        </article>
+
+        <!-- Video Editing -->
+        <article class="glass-card service-card accent-purple reveal">
+          <div class="service-icon purple-bg">🎬</div>
+          <h3>High-Retention Video Editing</h3>
+          <p>DaVinci Resolve color grading, motion graphics, and YouTube-optimized cuts that keep viewers hooked.</p>
+          <a href="services.html" class="service-card-link" style="color:var(--purple)">Learn More →</a>
+        </article>
+
+        <!-- Photo Editing -->
+        <article class="glass-card service-card accent-purple reveal">
+          <div class="service-icon purple-bg">🖼️</div>
+          <h3>Professional Photo Editing</h3>
+          <p>Product photography, retouching, Amazon A+ content, and brand visual identity that converts.</p>
+          <a href="services.html" class="service-card-link" style="color:var(--purple)">Learn More →</a>
+        </article>
+
+        <!-- Digital Marketing -->
+        <article class="glass-card service-card accent-cyan reveal">
+          <div class="service-icon cyan-bg">📣</div>
+          <h3>Digital Marketing &amp; Ads</h3>
+          <p>Meta &amp; Google Ads, WhatsApp campaigns, email automation, and funnel optimization with proven ROAS.</p>
+          <a href="services.html" class="service-card-link">Learn More →</a>
+        </article>
+
+        <!-- Security -->
+        <article class="glass-card service-card accent-cyan reveal">
+          <div class="service-icon cyan-bg">🛡️</div>
+          <h3>Security &amp; VAPT</h3>
+          <p>Penetration testing, OWASP compliance, CSRF/XSS hardening, and API security audits for peace of mind.</p>
+          <a href="services.html" class="service-card-link">Learn More →</a>
+        </article>
+      </div>
+
+      <div style="text-align:center;margin-top:3rem" class="reveal">
+        <a href="services.html" class="btn btn-outline btn-lg">View All Services &amp; Products →</a>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- ── Stats ─────────────────────────────────────────────── -->
+  <section class="stats-section section" aria-labelledby="stats-heading">
+    <div class="container">
+      <div class="section-header reveal" style="text-align:center;max-width:500px;margin-left:auto;margin-right:auto">
+        <div class="section-eyebrow section-eyebrow-center">// By The Numbers</div>
+        <h2 id="stats-heading">Results That Speak<br><span class="text-gradient">For Themselves</span></h2>
+      </div>
+      <div class="stats-grid stagger-container">
+        <div class="glass-card stat-card reveal">
+          <div class="stat-number"><span data-count="150" data-suffix="+">150+</span></div>
+          <div class="stat-label">Projects Delivered</div>
+        </div>
+        <div class="glass-card stat-card reveal">
+          <div class="stat-number text-cyan"><span data-count="98" data-suffix="%">98%</span></div>
+          <div class="stat-label">Client Retention Rate</div>
+        </div>
+        <div class="glass-card stat-card reveal">
+          <div class="stat-number" style="font-size:2rem">₹<span data-count="12" data-suffix="Cr+">12Cr+</span></div>
+          <div class="stat-label">Revenue Generated for Clients</div>
+        </div>
+        <div class="glass-card stat-card reveal">
+          <div class="stat-number text-cyan"><span data-count="4" data-suffix=".9★">4.9★</span></div>
+          <div class="stat-label">Average Client Rating</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Testimonials ───────────────────────────────────────── -->
+  <section class="testimonials-section" aria-labelledby="testimonials-heading" style="background:rgba(0,0,0,0.12);border-top:1px solid var(--glass-border)">
+    <div class="container">
+      <div class="section-header reveal" style="text-align:center;max-width:500px;margin:0 auto 3rem">
+        <div class="section-eyebrow section-eyebrow-center">// Client Stories</div>
+        <h2 id="testimonials-heading">What Our Clients<br><span class="text-gradient">Are Saying</span></h2>
+      </div>
+      <div class="testimonials-grid stagger-container">
+        <div class="glass-card testimonial-card reveal">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"DAAT rebuilt our entire fintech platform in 8 weeks. Zero downtime, 92% faster loads, and the SOC2 compliance we needed to close enterprise deals. Genuinely exceptional."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">AM</div>
+            <div>
+              <div class="testimonial-name">Arjun Mehta</div>
+              <div class="testimonial-role">CTO, FinEdge Technologies · Bengaluru</div>
+            </div>
+          </div>
+        </div>
+        <div class="glass-card testimonial-card reveal">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"12k to 94k YouTube subscribers in 8 months. The video quality, retention strategy, and thumbnail system DAAT implemented was completely transformative for our channel."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar" style="background:linear-gradient(135deg,#C0392B,#C9952A)">PS</div>
+            <div>
+              <div class="testimonial-name">Priya Sharma</div>
+              <div class="testimonial-role">Founder, TechTalks Media · Hyderabad</div>
+            </div>
+          </div>
+        </div>
+        <div class="glass-card testimonial-card reveal">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"420% organic traffic in 6 months. I was highly skeptical, but the technical SEO audit and content strategy DAAT executed was methodical and the results are undeniable."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">RJ</div>
+            <div>
+              <div class="testimonial-name">Rohit Jain</div>
+              <div class="testimonial-role">Co-founder, StyleVault.in · Mumbai</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:2.5rem" class="reveal">
+        <a href="portfolio.html" class="btn btn-outline btn-lg">View All Case Studies →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Lead Magnet ────────────────────────────────────────── -->
+  <section class="lead-magnet section" aria-labelledby="lead-heading">
+    <div class="container">
+      <div class="lead-magnet-inner reveal">
+        <div class="section-eyebrow" style="justify-content:center;margin-bottom:1rem">// Free Offer</div>
+        <h2 id="lead-heading" style="margin-bottom:1rem">
+          Get Your Free Technical<br><span class="text-gradient">SEO + Security Audit</span>
+        </h2>
+        <p style="color:var(--text-body);max-width:500px;margin:0 auto 0.75rem;line-height:1.75">
+          Worth ₹15,000 — yours completely free. Enter your website URL and we'll send a
+          comprehensive audit report within 24 hours. No strings attached.
+        </p>
+
+        <form class="lead-magnet-form" data-form="lead" novalidate aria-label="Free audit request form">
+          <input class="form-input" type="email" id="lead-email" placeholder="your@email.com" required aria-label="Your email address">
+          <input class="form-input" type="url" id="lead-url" placeholder="https://yourwebsite.com" required aria-label="Your website URL">
+          <button type="submit" class="btn btn-primary">Get Free Audit →</button>
+        </form>
+
+        <div class="trust-badges" style="margin-top:1.5rem">
+          <div class="trust-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            No spam, ever
+          </div>
+          <div class="trust-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Report in 24 hours
+          </div>
+          <div class="trust-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="20 6 9 17 4 12"/></svg>
+            150+ audits completed
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ── Footer ─────────────────────────────────────────────── -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo" style="margin-bottom:0">
+          <div class="nav-logo-icon">DA</div>
+          DAAT Services
+        </a>
+        <p>Engineering digital growth for Indian businesses. From secure code to stunning content — all under one roof.</p>
+        <div class="footer-socials">
+          <a href="#" class="social-btn" aria-label="X / Twitter">𝕏</a>
+          <a href="#" class="social-btn" aria-label="LinkedIn">in</a>
+          <a href="#" class="social-btn" aria-label="Instagram">✦</a>
+          <a href="#" class="social-btn" aria-label="YouTube">▶</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Services</h5>
+        <div class="footer-links">
+          <a href="services.html" class="footer-link">Web Applications</a>
+          <a href="services.html" class="footer-link">SEO</a>
+          <a href="services.html" class="footer-link">Video Editing</a>
+          <a href="services.html" class="footer-link">Photo Editing</a>
+          <a href="services.html" class="footer-link">Digital Marketing</a>
+          <a href="services.html" class="footer-link">Security / VAPT</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Products</h5>
+        <div class="footer-links">
+          <a href="products.html" class="footer-link">Analytics Pro</a>
+          <a href="products.html" class="footer-link">SEO Auditor</a>
+          <a href="products.html" class="footer-link">SecureCheck</a>
+          <a href="products.html" class="footer-link">DAAT Studio</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <div class="footer-links">
+          <a href="education.html" class="footer-link">Education</a>
+          <a href="portfolio.html" class="footer-link">Portfolio</a>
+          <a href="pricing.html"   class="footer-link">Pricing</a>
+          <a href="contact.html"   class="footer-link">Contact</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 DAAT Services. All rights reserved. | GST: 07AAACI1234F1ZX</p>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Refund Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
+
+

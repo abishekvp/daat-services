@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing - DAAT Services | Transparent Digital Agency Pricing in INR</title>
+    <meta name="description" content="Simple, transparent pricing for digital agency services in India. Web development, SEO, Video Editing, and Digital Marketing packages in INR with GST invoices.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/utilities.css">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+
+    <!-- Progress Bar -->
+    <div class="progress-bar" id="progress-bar"></div>
+
+    <!-- Cursor Glow -->
+    <div class="cursor-glow" id="cursor-glow"></div>
+
+    <!-- Navigation -->
+    <nav class="nav" id="main-nav" role="navigation" aria-label="Main navigation">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo" aria-label="DAAT Services Home">
+                <div class="nav-logo-icon" aria-hidden="true">DA</div>
+                DAAT Services
+            </a>
+            <div class="nav-links" role="list">
+                <a href="index.html"              class="nav-link"        role="listitem">Home</a>
+                <a href="services.html"           class="nav-link"        role="listitem">Services</a>
+                <a href="products.html"           class="nav-link"        role="listitem">Products</a>
+                <a href="education.html"          class="nav-link"        role="listitem">Education</a>
+                <a href="portfolio.html"          class="nav-link"        role="listitem">Portfolio</a>
+                <a href="pricing.html"            class="nav-link active" role="listitem">Pricing</a>
+                <a href="contact.html"            class="nav-link"        role="listitem">Contact</a>
+            </div>
+            <div class="nav-actions">
+                <a href="contact.html" class="btn btn-primary btn-sm" id="nav-cta">Start Your Project</a>
+                <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Drawer -->
+    <div class="nav-drawer" id="nav-drawer" aria-hidden="true">
+        <div class="nav-drawer-links">
+            <a href="index.html"             class="nav-drawer-link">Home</a>
+            <a href="services.html"          class="nav-drawer-link">Services</a>
+            <a href="products.html"          class="nav-drawer-link">Products</a>
+            <a href="education.html"         class="nav-drawer-link">Education</a>
+            <a href="portfolio.html"         class="nav-drawer-link">Portfolio</a>
+            <a href="pricing.html"           class="nav-drawer-link">Pricing</a>
+            <a href="contact.html"           class="nav-drawer-link">Contact</a>
+        </div>
+        <a href="contact.html" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:0.5rem">
+            Start Your Project →
+        </a>
+    </div>
+
+    <main class="page-wrapper">
+        <!-- Page Hero -->
+        <section class="page-hero pt-32 pb-16 reveal">
+            <div class="container text-center">
+                <p class="eyebrow mono-text text-cyan mb-4">// Transparent Pricing</p>
+                <h1 class="h1 mb-6">Simple, Transparent<br>Pricing in <span class="text-gradient">Indian Rupees</span></h1>
+                <p class="subtitle text-muted max-w-2xl mx-auto mb-8">No hidden fees. No dollar conversion headaches. All plans include GST-compliant invoices and dedicated support.</p>
+                
+                <div class="trust-row flex justify-center gap-8 text-sm mono-text text-gray-300 flex-wrap">
+                    <span class="flex items-center gap-2">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9952A" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+                        Cancel Anytime
+                    </span>
+                    <span class="flex items-center gap-2">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9952A" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+                        GST Invoice Included
+                    </span>
+                    <span class="flex items-center gap-2">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9952A" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+                        UPI / NetBanking / Cards
+                    </span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Service Category Tabs & Billing Toggle -->
+        <section class="pricing-controls pb-16 reveal">
+            <div class="container flex flex-col items-center gap-8">
+                
+                <div class="service-tabs flex gap-4 glass-panel p-2 rounded-full overflow-x-auto max-w-full">
+                    <button class="pricing-cat-tab active px-6 py-2 rounded-full font-medium transition-colors" data-cat="web">Web Apps</button>
+                    <button class="pricing-cat-tab px-6 py-2 rounded-full font-medium transition-colors" data-cat="seo">SEO</button>
+                    <button class="pricing-cat-tab px-6 py-2 rounded-full font-medium transition-colors" data-cat="video">Video Editing</button>
+                    <button class="pricing-cat-tab px-6 py-2 rounded-full font-medium transition-colors" data-cat="marketing">Digital Marketing</button>
+                </div>
+
+                <div class="billing-toggle-container flex items-center gap-4 bg-gray-900 px-6 py-3 rounded-full border border-gray-800">
+                    <span id="label-monthly" class="toggle-label active font-medium text-white transition-colors cursor-pointer">Monthly</span>
+                    <div id="billing-toggle" class="toggle-switch relative w-12 h-6 bg-gray-700 rounded-full cursor-pointer transition-colors">
+                        <div class="toggle-knob absolute left-1 top-1 w-4 h-4 bg-white rounded-full transition-transform"></div>
+                    </div>
+                    <span id="label-annual" class="toggle-label font-medium text-gray-400 transition-colors cursor-pointer">Annual</span>
+                    <span class="badge bg-green-500/20 text-green-400 text-xs px-2 py-1 rounded mono-text">Save 20%</span>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Pricing Grid -->
+        <section class="pb-24">
+            <div class="container pricing-grid">
+                
+                <!-- Growth Plan -->
+                <div class="pricing-card glass-card rounded-2xl reveal" style="transition-delay: 0.1s">
+                    <div class="pricing-header mb-8 pb-8 border-b border-gray-800">
+                        <h3 class="pricing-name text-xl font-bold mb-4 mono-text text-gray-300">GROWTH</h3>
+                        <div class="pricing-price-container mb-2">
+                            <span class="pricing-original text-gray-500 line-through text-sm mr-2 hidden" data-original="growth">₹31,249</span>
+                            <span class="pricing-save text-green-400 text-xs bg-green-500/10 px-2 py-1 rounded hidden" data-save="growth">Save 20%</span>
+                            <div class="flex items-end gap-1 mt-2">
+                                <span class="pricing-currency text-4xl font-bold">₹</span>
+                                <span class="pricing-price text-5xl font-bold" data-price="growth">24,999</span>
+                                <span class="pricing-period text-gray-400 mb-1" data-period="growth">/month</span>
+                            </div>
+                        </div>
+                        <p class="pricing-desc text-gray-400 text-sm h-12">Perfect for startups and small businesses ready to establish their digital presence.</p>
+                    </div>
+                    
+                    <ul class="feature-list flex-1 flex flex-col gap-4 mb-8 text-sm">
+                        <li class="flex items-start gap-3"><svg class="w-5 h-5 text-cyan shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> 1 active project at a time</li>
+                        <li class="flex items-start gap-3"><svg class="w-5 h-5 text-cyan shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Up to 5 pages / deliverables</li>
+                        <li class="flex items-start gap-3"><svg class="w-5 h-5 text-cyan shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Standard delivery (7-10 days)</li>
+                        <li class="flex items-start gap-3"><svg class="w-5 h-5 text-cyan shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> 1 revision round</li>
+                        <li class="flex items-start gap-3"><svg class="w-5 h-5 text-cyan shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Email support</li>
+                        <li class="flex items-start gap-3"><svg class="w-5 h-5 text-cyan shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Monthly progress report</li>
+                        <li class="flex items-start gap-3"><svg class="w-5 h-5 text-cyan shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> GST invoice</li>
+                        
+                        <li class="flex items-start gap-3 text-gray-600"><svg class="w-5 h-5 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg> Dedicated account manager</li>
+                        <li class="flex items-start gap-3 text-gray-600"><svg class="w-5 h-5 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg> Priority support</li>
+                        <li class="flex items-start gap-3 text-gray-600"><svg class="w-5 h-5 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg> Custom integrations</li>
+                    </ul>
+                    
+                    <button class="btn btn-outline w-full mb-4" data-razorpay="growth">Get Started</button>
+                    <p class="pricing-gst text-xs text-center text-gray-500">*Exclusive of 18% GST</p>
+                </div>
+
+                <!-- Professional Plan -->
+                <div class="pricing-card featured glass-card rounded-2xl reveal" style="transition-delay: 0.2s">
+                    <div class="pricing-popular">Most Popular</div>
+                    
+                    <div class="pricing-header mb-8 pb-8 border-b border-gray-800">
+                        <h3 class="pricing-name text-xl font-bold mb-4 mono-text text-cyan">PROFESSIONAL</h3>
+                        <div class="pricing-price-container mb-2">
+                            <span class="pricing-original text-gray-500 line-through text-sm mr-2 hidden" data-original="professional">₹74,999</span>
+                            <span class="pricing-save text-green-400 text-xs bg-green-500/10 px-2 py-1 rounded hidden" data-save="professional">Save 20%</span>
+                            <div class="flex items-end gap-1 mt-2">
+                                <span class="pricing-currency text-4xl font-bold">₹</span>
+                                <span class="pricing-price text-5xl font-bold" data-price="professional">59,999</span>
+                                <span class="pricing-period text-gray-400 mb-1" data-period="professional">/month</span>
+                            </div>
+                        </div>
+                        <p class="pricing-desc text-gray-400 text-sm h-12">For growing businesses that need consistent output and dedicated expertise.</p>
+                    </div>
+                    
+                    <ul class="feature-list flex-1 flex flex-col gap-4 mb-8 text-sm">
+                        <li class="flex items-start gap-3"><svg class="w-5 h-5 text-cyan shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> 3 concurrent projects</li>
+                        <li class="flex items-start gap-3"><svg class="w-5 h-5 text-cyan shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Unlimited revisions</li>
+                        <li class="flex items-start gap-3"><svg class="w-5 h-5 text-cyan shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> 48-hour priority delivery</li>
+                        <li class="flex items-start gap-3"><svg class="w-5 h-5 text-cyan shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Dedicated account manager</li>
+                        <li class="flex items-start gap-3"><svg class="w-5 h-5 text-cyan shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> WhatsApp + Email support</li>
+                        <li class="flex items-start gap-3"><svg class="w-5 h-5 text-cyan shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Weekly progress calls</li>
+                        <li class="flex items-start gap-3"><svg class="w-5 h-5 text-cyan shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> GST invoice</li>
+                        <li class="flex items-start gap-3"><svg class="w-5 h-5 text-cyan shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Custom integrations</li>
+                        <li class="flex items-start gap-3"><svg class="w-5 h-5 text-cyan shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Performance dashboard access</li>
+                        
+                        <li class="flex items-start gap-3 text-gray-600"><svg class="w-5 h-5 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg> White-label reports</li>
+                        <li class="flex items-start gap-3 text-gray-600"><svg class="w-5 h-5 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg> Enterprise SLA</li>
+                    </ul>
+                    
+                    <button class="btn btn-primary w-full mb-4" data-razorpay="professional">Start Professional</button>
+                    <p class="pricing-gst text-xs text-center text-gray-500">*Exclusive of 18% GST</p>
+                </div>
+
+                <!-- Enterprise Plan -->
+                <div class="pricing-card glass-card rounded-2xl reveal" style="transition-delay: 0.3s">
+                    <div class="pricing-header mb-8 pb-8 border-b border-gray-800">
+                        <h3 class="pricing-name text-xl font-bold mb-4 mono-text text-purple">ENTERPRISE</h3>
+                        <div class="pricing-price-container mb-2">
+                            <span class="pricing-original text-gray-500 line-through text-sm mr-2 hidden" data-original="enterprise">₹1,62,499</span>
+                            <span class="pricing-save text-green-400 text-xs bg-green-500/10 px-2 py-1 rounded hidden" data-save="enterprise">Save 20%</span>
+                            <div class="flex items-end gap-1 mt-2">
+                                <span class="pricing-currency text-4xl font-bold">₹</span>
+                                <span class="pricing-price text-5xl font-bold" data-price="enterprise">1,29,999</span>
+                                <span class="pricing-period text-gray-400 mb-1" data-period="enterprise">/month</span>
+                            </div>
+                        </div>
+                        <p class="pricing-desc text-gray-400 text-sm h-12">Full-service partnership for established businesses with complex, ongoing requirements.</p>
+                    </div>
+                    
+                    <ul class="feature-list flex-1 flex flex-col gap-4 mb-8 text-sm">
+                        <li class="flex items-start gap-3"><svg class="w-5 h-5 text-cyan shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Unlimited concurrent projects</li>
+                        <li class="flex items-start gap-3"><svg class="w-5 h-5 text-cyan shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Unlimited revisions</li>
+                        <li class="flex items-start gap-3"><svg class="w-5 h-5 text-cyan shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> 24hr emergency support</li>
+                        <li class="flex items-start gap-3"><svg class="w-5 h-5 text-cyan shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Dedicated project team</li>
+                        <li class="flex items-start gap-3"><svg class="w-5 h-5 text-cyan shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> CTO advisory calls (monthly)</li>
+                        <li class="flex items-start gap-3"><svg class="w-5 h-5 text-cyan shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Custom SLA</li>
+                        <li class="flex items-start gap-3"><svg class="w-5 h-5 text-cyan shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> All integrations</li>
+                        <li class="flex items-start gap-3"><svg class="w-5 h-5 text-cyan shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> White-label deliverables</li>
+                        <li class="flex items-start gap-3"><svg class="w-5 h-5 text-cyan shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Quarterly business reviews</li>
+                    </ul>
+                    
+                    <button class="btn btn-gradient w-full mb-4" data-razorpay="enterprise">Contact Sales</button>
+                    <p class="pricing-gst text-xs text-center text-gray-500">*Exclusive of 18% GST</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Sachet / Micro-Pricing Section -->
+        <section class="sachet-pricing py-24 bg-gray-900 border-y border-gray-800 reveal">
+            <div class="container">
+                <div class="text-center mb-16">
+                    <p class="eyebrow mono-text text-purple mb-4">// Pay-Per-Deliverable</p>
+                    <h2 class="h2 mb-4">One-Off Packages<br><span class="text-gradient">No Retainers Required</span></h2>
+                    <p class="subtitle text-muted max-w-2xl mx-auto">Test our quality risk-free. Perfect for specific deliverables without long-term commitment.</p>
+                </div>
+
+                <div class="grid md-grid-3 gap-6">
+                    <!-- Sachet 1 -->
+                    <div class="glass-card p-6 rounded-xl hover:-translate-y-1 transition-transform reveal">
+                        <div class="flex items-center justify-between mb-4">
+                            <h4 class="font-bold">Video Editing</h4>
+                            <span class="badge bg-gray-800 text-gray-300 text-xs px-2 py-1 rounded">48h Delivery</span>
+                        </div>
+                        <div class="text-3xl font-bold text-cyan mb-4">₹2,999</div>
+                        <ul class="text-sm text-gray-400 mb-6 space-y-2">
+                            <li>• Up to 10 min duration</li>
+                            <li>• Color graded</li>
+                            <li>• Subtitled</li>
+                            <li>• Thumbnail included</li>
+                        </ul>
+                        <button class="btn btn-outline w-full text-sm py-2">Order Now &rarr;</button>
+                    </div>
+
+                    <!-- Sachet 2 -->
+                    <div class="glass-card p-6 rounded-xl hover:-translate-y-1 transition-transform reveal" style="transition-delay: 0.1s">
+                        <div class="flex items-center justify-between mb-4">
+                            <h4 class="font-bold">Technical SEO Audit</h4>
+                            <span class="badge bg-gray-800 text-gray-300 text-xs px-2 py-1 rounded">24h Delivery</span>
+                        </div>
+                        <div class="text-3xl font-bold text-cyan mb-4">₹4,999</div>
+                        <ul class="text-sm text-gray-400 mb-6 space-y-2">
+                            <li>• 200-point audit</li>
+                            <li>• Fix-priority report</li>
+                            <li>• 30-min walkthrough call</li>
+                        </ul>
+                        <button class="btn btn-outline w-full text-sm py-2">Order Now &rarr;</button>
+                    </div>
+
+                    <!-- Sachet 3 -->
+                    <div class="glass-card p-6 rounded-xl hover:-translate-y-1 transition-transform reveal" style="transition-delay: 0.2s">
+                        <div class="flex items-center justify-between mb-4">
+                            <h4 class="font-bold">Landing Page Design</h4>
+                            <span class="badge bg-gray-800 text-gray-300 text-xs px-2 py-1 rounded">5 Days</span>
+                        </div>
+                        <div class="text-3xl font-bold text-cyan mb-4">₹9,999</div>
+                        <ul class="text-sm text-gray-400 mb-6 space-y-2">
+                            <li>• Figma design + HTML/CSS</li>
+                            <li>• Mobile responsive</li>
+                            <li>• 2 revisions</li>
+                        </ul>
+                        <button class="btn btn-outline w-full text-sm py-2">Order Now &rarr;</button>
+                    </div>
+
+                    <!-- Sachet 4 -->
+                    <div class="glass-card p-6 rounded-xl hover:-translate-y-1 transition-transform reveal" style="transition-delay: 0.3s">
+                        <div class="flex items-center justify-between mb-4">
+                            <h4 class="font-bold">Product Photo Edit</h4>
+                            <span class="badge bg-gray-800 text-gray-300 text-xs px-2 py-1 rounded">24h Delivery</span>
+                        </div>
+                        <div class="text-3xl font-bold text-cyan mb-4">₹1,499<span class="text-sm text-gray-500 font-normal"> / 10 imgs</span></div>
+                        <ul class="text-sm text-gray-400 mb-6 space-y-2">
+                            <li>• Background removal</li>
+                            <li>• Color fix</li>
+                            <li>• Amazon-optimized</li>
+                        </ul>
+                        <button class="btn btn-outline w-full text-sm py-2">Order Now &rarr;</button>
+                    </div>
+
+                    <!-- Sachet 5 -->
+                    <div class="glass-card p-6 rounded-xl hover:-translate-y-1 transition-transform reveal" style="transition-delay: 0.4s">
+                        <div class="flex items-center justify-between mb-4">
+                            <h4 class="font-bold">Security Scan</h4>
+                            <span class="badge bg-gray-800 text-gray-300 text-xs px-2 py-1 rounded">48h Delivery</span>
+                        </div>
+                        <div class="text-3xl font-bold text-cyan mb-4">₹7,499</div>
+                        <ul class="text-sm text-gray-400 mb-6 space-y-2">
+                            <li>• OWASP Top 10</li>
+                            <li>• Detailed PDF report</li>
+                            <li>• 1-hour consultation</li>
+                        </ul>
+                        <button class="btn btn-outline w-full text-sm py-2">Order Now &rarr;</button>
+                    </div>
+
+                    <!-- Sachet 6 -->
+                    <div class="glass-card p-6 rounded-xl hover:-translate-y-1 transition-transform reveal" style="transition-delay: 0.5s">
+                        <div class="flex items-center justify-between mb-4">
+                            <h4 class="font-bold text-sm">Social Media Ad Creative</h4>
+                            <span class="badge bg-gray-800 text-gray-300 text-xs px-2 py-1 rounded">72h Delivery</span>
+                        </div>
+                        <div class="text-3xl font-bold text-cyan mb-4">₹3,499<span class="text-sm text-gray-500 font-normal"> / 5 variants</span></div>
+                        <ul class="text-sm text-gray-400 mb-6 space-y-2">
+                            <li>• Meta/Instagram formatted</li>
+                            <li>• Copy included</li>
+                            <li>• A/B ready</li>
+                        </ul>
+                        <button class="btn btn-outline w-full text-sm py-2">Order Now &rarr;</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Payment & Checkout Info -->
+        <section class="checkout-info py-24 reveal">
+            <div class="container">
+                <div class="text-center mb-12">
+                    <h2 class="h2 mb-4">Seamless Payments<br>Built for <span class="text-gradient">India</span></h2>
+                </div>
+
+                <div class="grid md-grid-3 gap-8 mb-12">
+                    <div class="glass-card p-6 rounded-xl text-center flex flex-col items-center">
+                        <div class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-cyan" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+                        </div>
+                        <h4 class="font-bold mb-2">UPI</h4>
+                        <p class="text-sm text-gray-400">Preferred — zero surcharge. GPay, PhonePe, Paytm, BHIM.</p>
+                    </div>
+                    
+                    <div class="glass-card p-6 rounded-xl text-center flex flex-col items-center">
+                        <div class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-cyan" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/></svg>
+                        </div>
+                        <h4 class="font-bold mb-2">Net Banking</h4>
+                        <p class="text-sm text-gray-400">Direct integration with all major Indian banks.</p>
+                    </div>
+
+                    <div class="glass-card p-6 rounded-xl text-center flex flex-col items-center">
+                        <div class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-cyan" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/></svg>
+                        </div>
+                        <h4 class="font-bold mb-2">Cards & EMI</h4>
+                        <p class="text-sm text-gray-400">Visa/Mastercard/Rupay + Easy EMI options available.</p>
+                    </div>
+                </div>
+
+                <div class="max-w-2xl mx-auto glass-card p-8 rounded-xl relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-4">
+                        <span class="text-xs text-gray-500 font-bold tracking-widest uppercase">Powered by Razorpay</span>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <label class="flex items-center gap-3 cursor-pointer select-none">
+                            <input type="checkbox" id="has-gstin" class="form-checkbox bg-gray-900 border-gray-700 text-cyan rounded focus:ring-cyan w-5 h-5">
+                            <span class="text-gray-300 font-medium">Are you a GST-registered business?</span>
+                        </label>
+                    </div>
+
+                    <div id="gstin-field" class="hidden mb-6 pl-8">
+                        <input type="text" placeholder="Enter 15-digit GSTIN" class="w-full bg-gray-900 border border-gray-700 rounded p-3 text-white focus:border-cyan outline-none transition-colors mb-2">
+                        <p class="text-xs text-green-400">✓ Claim Input Tax Credit on your invoice</p>
+                    </div>
+
+                    <p class="text-xs text-gray-500 border-t border-gray-800 pt-6">All transactions are secured by 256-bit SSL encryption. GST-compliant invoices are auto-generated and emailed within 1 hour of payment.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Comparison Table -->
+        <section class="comparison-table py-24 bg-gray-900 border-y border-gray-800 reveal">
+            <div class="container">
+                <h2 class="h2 text-center mb-12">Compare Plans</h2>
+                
+                <div class="glass-card rounded-xl overflow-x-auto">
+                    <table class="w-full text-left border-collapse min-w-[800px]">
+                        <thead>
+                            <tr class="border-b border-gray-800">
+                                <th class="p-6 font-bold w-1/4">Features</th>
+                                <th class="p-6 font-bold text-gray-300 w-1/4">Growth</th>
+                                <th class="p-6 font-bold text-cyan w-1/4">Professional</th>
+                                <th class="p-6 font-bold text-purple w-1/4">Enterprise</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-sm">
+                            <tr class="border-b border-gray-800/50">
+                                <td class="p-6 text-gray-400">Concurrent Projects</td>
+                                <td class="p-6">1</td>
+                                <td class="p-6">3</td>
+                                <td class="p-6">Unlimited</td>
+                            </tr>
+                            <tr class="border-b border-gray-800/50">
+                                <td class="p-6 text-gray-400">Delivery Speed</td>
+                                <td class="p-6">Standard</td>
+                                <td class="p-6">48-hour priority</td>
+                                <td class="p-6">Custom SLA</td>
+                            </tr>
+                            <tr class="border-b border-gray-800/50">
+                                <td class="p-6 text-gray-400">Revisions</td>
+                                <td class="p-6">1 round</td>
+                                <td class="p-6">Unlimited</td>
+                                <td class="p-6">Unlimited</td>
+                            </tr>
+                            <tr class="border-b border-gray-800/50">
+                                <td class="p-6 text-gray-400">Support Channel</td>
+                                <td class="p-6">Email</td>
+                                <td class="p-6">WhatsApp + Email</td>
+                                <td class="p-6">24/7 Priority + Phone</td>
+                            </tr>
+                            <tr class="border-b border-gray-800/50">
+                                <td class="p-6 text-gray-400">Account Manager</td>
+                                <td class="p-6 text-gray-600">✗</td>
+                                <td class="p-6 text-cyan">✓</td>
+                                <td class="p-6 text-cyan">✓ (Dedicated Team)</td>
+                            </tr>
+                            <tr class="border-b border-gray-800/50">
+                                <td class="p-6 text-gray-400">Custom Integrations</td>
+                                <td class="p-6 text-gray-600">✗</td>
+                                <td class="p-6 text-cyan">✓</td>
+                                <td class="p-6 text-cyan">✓</td>
+                            </tr>
+                            <tr class="border-b border-gray-800/50">
+                                <td class="p-6 text-gray-400">Performance Dashboard</td>
+                                <td class="p-6 text-gray-600">✗</td>
+                                <td class="p-6 text-cyan">✓</td>
+                                <td class="p-6 text-cyan">✓</td>
+                            </tr>
+                            <tr class="border-b border-gray-800/50">
+                                <td class="p-6 text-gray-400">White-label</td>
+                                <td class="p-6 text-gray-600">✗</td>
+                                <td class="p-6 text-gray-600">✗</td>
+                                <td class="p-6 text-cyan">✓</td>
+                            </tr>
+                            <tr class="border-b border-gray-800/50">
+                                <td class="p-6 text-gray-400">Onboarding Call</td>
+                                <td class="p-6 text-gray-600">✗</td>
+                                <td class="p-6 text-cyan">✓</td>
+                                <td class="p-6 text-cyan">✓ (Onsite possible)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="faq py-24 reveal">
+            <div class="container max-w-3xl">
+                <h2 class="h2 text-center mb-12">Frequently Asked Questions</h2>
+                
+                <div class="faq-list space-y-4">
+                    <div class="glass-card p-6 rounded-xl">
+                        <h4 class="font-bold mb-2">Do prices include GST?</h4>
+                        <p class="text-gray-400 text-sm">No, all prices are exclusive of 18% GST as applicable.</p>
+                    </div>
+                    <div class="glass-card p-6 rounded-xl">
+                        <h4 class="font-bold mb-2">Can I switch plans mid-cycle?</h4>
+                        <p class="text-gray-400 text-sm">Yes, upgrades are prorated. Downgrades apply from next billing cycle.</p>
+                    </div>
+                    <div class="glass-card p-6 rounded-xl">
+                        <h4 class="font-bold mb-2">What payment methods are supported?</h4>
+                        <p class="text-gray-400 text-sm">UPI, NetBanking, Debit/Credit Cards, Wallets via Razorpay.</p>
+                    </div>
+                    <div class="glass-card p-6 rounded-xl">
+                        <h4 class="font-bold mb-2">Is there a free trial?</h4>
+                        <p class="text-gray-400 text-sm">We offer a free audit (SEO or Security) worth ₹15,000 for all new clients.</p>
+                    </div>
+                    <div class="glass-card p-6 rounded-xl">
+                        <h4 class="font-bold mb-2">Do you offer startup discounts?</h4>
+                        <p class="text-gray-400 text-sm">Yes, DPIIT-registered startups get 15% additional discount. Email us with your certificate.</p>
+                    </div>
+                    <div class="glass-card p-6 rounded-xl">
+                        <h4 class="font-bold mb-2">What if I am not satisfied?</h4>
+                        <p class="text-gray-400 text-sm">We offer milestone-based payments — you approve before we invoice.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ── Footer ─────────────────────────────────────────────── -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="nav-logo" style="margin-bottom:0">
+                        <div class="nav-logo-icon">DA</div>
+                        DAAT Services
+                    </a>
+                    <p>Engineering digital growth for Indian businesses. From secure code to stunning content — all under one roof.</p>
+                    <div class="footer-socials">
+                        <a href="#" class="social-btn" aria-label="X / Twitter">𝕏</a>
+                        <a href="#" class="social-btn" aria-label="LinkedIn">in</a>
+                        <a href="#" class="social-btn" aria-label="Instagram">✦</a>
+                        <a href="#" class="social-btn" aria-label="YouTube">▶</a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h5>Services</h5>
+                    <div class="footer-links">
+                        <a href="services.html" class="footer-link">Web Applications</a>
+                        <a href="services.html" class="footer-link">SEO</a>
+                        <a href="services.html" class="footer-link">Video Editing</a>
+                        <a href="services.html" class="footer-link">Photo Editing</a>
+                        <a href="services.html" class="footer-link">Digital Marketing</a>
+                        <a href="services.html" class="footer-link">Security / VAPT</a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h5>Products</h5>
+                    <div class="footer-links">
+                        <a href="products.html" class="footer-link">Analytics Pro</a>
+                        <a href="products.html" class="footer-link">SEO Auditor</a>
+                        <a href="products.html" class="footer-link">SecureCheck</a>
+                        <a href="products.html" class="footer-link">DAAT Studio</a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h5>Company</h5>
+                    <div class="footer-links">
+                        <a href="education.html" class="footer-link">Education</a>
+                        <a href="portfolio.html" class="footer-link">Portfolio</a>
+                        <a href="pricing.html"   class="footer-link">Pricing</a>
+                        <a href="contact.html"   class="footer-link">Contact</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 DAAT Services. All rights reserved. | GST: 07AAACI1234F1ZX</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Refund Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/pricing.js"></script>
+    
+    <!-- Script to toggle GST field -->
+    <script>
+        document.getElementById('has-gstin').addEventListener('change', function() {
+            const field = document.getElementById('gstin-field');
+            if (this.checked) {
+                field.classList.remove('hidden');
+                field.classList.add('block');
+            } else {
+                field.classList.add('hidden');
+                field.classList.remove('block');
+            }
+        });
+    </script>
+</body>
+</html>
+

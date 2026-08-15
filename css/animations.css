@@ -1,0 +1,283 @@
+/* ============================================================
+   DAAT SERVICES — Animations
+   ============================================================ */
+
+/* ─── Keyframes ─────────────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(32px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes slideLeft {
+  from { opacity: 0; transform: translateX(40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideRight {
+  from { opacity: 0; transform: translateX(-40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.92); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes marqueeLeft {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@keyframes marqueeRight {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+
+@keyframes pulse-cyan {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(201, 149, 42, 0); }
+  50%       { box-shadow: 0 0 0 8px rgba(201, 149, 42, 0.1); }
+}
+
+@keyframes pulse-purple {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(192, 57, 43, 0); }
+  50%       { box-shadow: 0 0 0 8px rgba(192, 57, 43, 0.1); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-10px); }
+}
+
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50%       { transform: translateY(-16px) rotate(2deg); }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes gradient-shift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes shimmer {
+  from { transform: translateX(-100%); }
+  to   { transform: translateX(100%); }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+@keyframes typewriter {
+  from { width: 0; }
+  to   { width: 100%; }
+}
+
+@keyframes counter-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes orbit {
+  from { transform: rotate(0deg) translateX(80px) rotate(0deg); }
+  to   { transform: rotate(360deg) translateX(80px) rotate(-360deg); }
+}
+
+@keyframes breathe {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50%       { opacity: 0.8; transform: scale(1.05); }
+}
+
+@keyframes glitch {
+  0%, 100% { transform: translateX(0); clip-path: none; }
+  20%       { transform: translateX(-3px); clip-path: polygon(0 15%, 100% 15%, 100% 35%, 0 35%); }
+  40%       { transform: translateX(3px); clip-path: polygon(0 50%, 100% 50%, 100% 70%, 0 70%); }
+  60%       { transform: translateX(-2px); clip-path: none; }
+}
+
+@keyframes nav-slide-down {
+  from { transform: translateY(-100%); opacity: 0; }
+  to   { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes dot-ping {
+  0%    { transform: scale(1); opacity: 1; }
+  75%, 100% { transform: scale(2); opacity: 0; }
+}
+
+/* ─── Scroll Reveal ─────────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+}
+
+.reveal.from-left {
+  transform: translateX(-28px);
+}
+
+.reveal.from-right {
+  transform: translateX(28px);
+}
+
+.reveal.scale-in {
+  transform: scale(0.94);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Staggered children */
+.stagger-container .reveal:nth-child(1) { transition-delay: 0ms; }
+.stagger-container .reveal:nth-child(2) { transition-delay: 80ms; }
+.stagger-container .reveal:nth-child(3) { transition-delay: 160ms; }
+.stagger-container .reveal:nth-child(4) { transition-delay: 240ms; }
+.stagger-container .reveal:nth-child(5) { transition-delay: 320ms; }
+.stagger-container .reveal:nth-child(6) { transition-delay: 400ms; }
+.stagger-container .reveal:nth-child(7) { transition-delay: 480ms; }
+.stagger-container .reveal:nth-child(8) { transition-delay: 560ms; }
+
+/* ─── Marquee ────────────────────────────────────────────── */
+.marquee-wrapper {
+  overflow: hidden;
+  position: relative;
+  mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marqueeLeft 28s linear infinite;
+  gap: 0;
+  will-change: transform;
+}
+
+.marquee-track:hover { animation-play-state: paused; }
+
+.marquee-track-reverse {
+  animation: marqueeRight 24s linear infinite;
+}
+
+/* ─── Gradient Animated Background ─────────────────────── */
+.animated-bg {
+  background: linear-gradient(135deg, #E8B84B, #C0392B, #0A0A0A, #E8B84B);
+  background-size: 300% 300%;
+  animation: gradient-shift 8s ease infinite;
+}
+
+/* ─── Floating Elements ─────────────────────────────────── */
+.float { animation: float 4s ease-in-out infinite; }
+.float-slow { animation: floatSlow 6s ease-in-out infinite; }
+.float-delay-1 { animation-delay: -1s; }
+.float-delay-2 { animation-delay: -2s; }
+.float-delay-3 { animation-delay: -3s; }
+
+/* ─── Pulse Indicators ──────────────────────────────────── */
+.status-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: #22c55e;
+  border-radius: 50%;
+  position: relative;
+}
+
+.status-dot::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: #22c55e;
+  animation: dot-ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+/* ─── Shimmer Skeleton ──────────────────────────────────── */
+.shimmer {
+  position: relative;
+  overflow: hidden;
+  background: var(--glass-bg);
+}
+
+.shimmer::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.04) 50%, transparent 100%);
+  animation: shimmer 2s infinite;
+}
+
+/* ─── Page Transition ───────────────────────────────────── */
+.page-enter { animation: fadeIn 0.5s var(--ease-out) both; }
+
+/* ─── Cursor Glow ───────────────────────────────────────── */
+.cursor-glow {
+  position: fixed;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(201,149,42,0.07) 0%, transparent 70%);
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  transition: opacity 0.3s;
+  will-change: transform;
+}
+
+/* ─── Typewriter Cursor ─────────────────────────────────── */
+.typewriter-cursor {
+  display: inline-block;
+  width: 3px;
+  height: 1.1em;
+  background: var(--cyan);
+  margin-left: 4px;
+  vertical-align: text-bottom;
+  animation: blink 1s step-end infinite;
+  border-radius: 2px;
+}
+
+/* ─── Progress Bar ──────────────────────────────────────── */
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: var(--grad-cyan-purple);
+  z-index: 10000;
+  transform-origin: left;
+  transform: scaleX(0);
+  transition: transform 0.1s linear;
+}
+
+/* ─── Hero Particle Canvas ──────────────────────────────── */
+#particle-canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.6;
+}
+
+/* ─── Counter Animation ─────────────────────────────────── */
+.counter-num {
+  display: inline-block;
+}
+
+/* ─── Card hover glow shadow ────────────────────────────── */
+@media (hover: hover) {
+  .glass-card:hover {
+    animation: none;
+  }
+}

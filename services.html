@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services & Products | DAAT Services</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/animations.css">
+
+    <style>
+        /* Specific Styles for Services Page */
+        .page-hero {
+            padding: 160px 0 80px;
+            text-align: center;
+        }
+        
+        .breadcrumb {
+            font-family: var(--font-mono);
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--border);
+            border-radius: 99px;
+        }
+        .breadcrumb a {
+            color: var(--cyan);
+            text-decoration: none;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .service-section {
+            padding: 80px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .service-section:last-of-type {
+            border-bottom: none;
+        }
+        
+        .service-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        .service-layout.reversed {
+            direction: rtl;
+        }
+        .service-layout.reversed > * {
+            direction: ltr;
+        }
+        
+        @media (max-width: 992px) {
+            .service-layout, .service-layout.reversed {
+                grid-template-columns: 1fr;
+                direction: ltr;
+                gap: 2rem;
+            }
+        }
+
+        .service-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 12px;
+            background: rgba(0, 240, 255, 0.1);
+            color: var(--cyan);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(0, 240, 255, 0.2);
+        }
+        .service-icon.purple {
+            background: rgba(112, 0, 255, 0.1);
+            color: var(--purple);
+            border-color: rgba(112, 0, 255, 0.2);
+        }
+
+        .service-content h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        .service-content p.description {
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        .methodology-timeline {
+            margin-bottom: 2rem;
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+        }
+        .methodology-timeline::before {
+            content: '';
+            position: absolute;
+            top: 12px;
+            left: 10px;
+            right: 10px;
+            height: 1px;
+            background: var(--border);
+            z-index: 0;
+        }
+        .timeline-step {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            width: 25%;
+        }
+        .timeline-dot {
+            width: 24px;
+            height: 24px;
+            background: var(--bg);
+            border: 2px solid var(--cyan);
+            border-radius: 50%;
+            margin: 0 auto 0.5rem;
+        }
+        .purple-accent .timeline-dot {
+            border-color: var(--purple);
+        }
+        .timeline-label {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        @media (max-width: 768px) {
+            .methodology-timeline {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+            .methodology-timeline::before {
+                top: 0;
+                bottom: 0;
+                left: 11px;
+                width: 1px;
+                height: auto;
+            }
+            .timeline-step {
+                width: 100%;
+                display: flex;
+                align-items: center;
+                text-align: left;
+                gap: 1rem;
+            }
+            .timeline-dot {
+                margin: 0;
+            }
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 2rem;
+        }
+        .feature-list li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-light);
+        }
+        .feature-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--cyan);
+        }
+        .purple-accent .feature-list li::before {
+            color: var(--purple);
+        }
+
+        .tech-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+        .tech-pill {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            padding: 0.25rem 0.75rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border);
+            border-radius: 99px;
+            color: var(--text-muted);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .product-card {
+            position: relative;
+            padding: 2rem;
+        }
+        .product-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+        .badge-new {
+            background: rgba(0, 240, 255, 0.1);
+            color: var(--cyan);
+            border: 1px solid rgba(0, 240, 255, 0.2);
+        }
+        .badge-stable {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text-light);
+            border: 1px solid var(--border);
+        }
+        .badge-beta {
+            background: rgba(112, 0, 255, 0.1);
+            color: var(--purple);
+            border: 1px solid rgba(112, 0, 255, 0.2);
+        }
+        .product-price {
+            font-family: var(--font-mono);
+            font-size: 1.25rem;
+            color: var(--text-light);
+            margin: 1.5rem 0;
+            display: block;
+        }
+
+        .why-us-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .process-section {
+            padding: 100px 0;
+        }
+        .process-timeline {
+            max-width: 800px;
+            margin: 3rem auto 0;
+            position: relative;
+        }
+        .process-timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 24px;
+            width: 2px;
+            background: var(--border);
+        }
+        .process-step {
+            position: relative;
+            padding-left: 4rem;
+            margin-bottom: 3rem;
+        }
+        .process-step:last-child {
+            margin-bottom: 0;
+        }
+        .process-num {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 50px;
+            height: 50px;
+            background: var(--bg);
+            border: 2px solid var(--cyan);
+            color: var(--cyan);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-mono);
+            font-size: 1.25rem;
+            font-weight: 700;
+            z-index: 1;
+        }
+        .process-step h4 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .process-step p {
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+<body>
+    <div id="progress-bar"></div>
+    <div id="cursor-glow"></div>
+
+    <!-- Navigation -->
+    <nav class="nav" id="main-nav" role="navigation" aria-label="Main navigation">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo" aria-label="DAAT Services Home">
+                <div class="nav-logo-icon" aria-hidden="true">DA</div>
+                DAAT Services
+            </a>
+            <div class="nav-links" role="list">
+                <a href="index.html"              class="nav-link"        role="listitem">Home</a>
+                <a href="services.html"           class="nav-link active" role="listitem">Services</a>
+                <a href="products.html"           class="nav-link"        role="listitem">Products</a>
+                <a href="education.html"          class="nav-link"        role="listitem">Education</a>
+                <a href="portfolio.html"          class="nav-link"        role="listitem">Portfolio</a>
+                <a href="pricing.html"            class="nav-link"        role="listitem">Pricing</a>
+                <a href="contact.html"            class="nav-link"        role="listitem">Contact</a>
+            </div>
+            <div class="nav-actions">
+                <a href="contact.html" class="btn btn-primary btn-sm" id="nav-cta">Start Your Project</a>
+                <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Drawer -->
+    <div class="nav-drawer" id="nav-drawer" aria-hidden="true">
+        <div class="nav-drawer-links">
+            <a href="index.html"             class="nav-drawer-link">Home</a>
+            <a href="services.html"          class="nav-drawer-link">Services</a>
+            <a href="products.html"          class="nav-drawer-link">Products</a>
+            <a href="education.html"         class="nav-drawer-link">Education</a>
+            <a href="portfolio.html"         class="nav-drawer-link">Portfolio</a>
+            <a href="pricing.html"           class="nav-drawer-link">Pricing</a>
+            <a href="contact.html"           class="nav-drawer-link">Contact</a>
+        </div>
+        <a href="contact.html" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:0.5rem">
+            Start Your Project →
+        </a>
+    </div>
+
+    <main class="page-wrapper">
+
+    <!-- Page Hero -->
+    <header class="page-hero">
+        <div class="container reveal">
+            <div class="breadcrumb">
+                <a href="index.html">Home</a> &gt; <span>Services</span>
+            </div>
+            <div class="eyebrow">// Our Services & Products</div>
+            <h1>End-to-End Digital<br>Engineering Services</h1>
+            <p class="subtitle" style="max-width: 600px; margin: 1.5rem auto 0; color: var(--text-muted); font-size: 1.2rem;">
+                Six specialized practices, four proprietary products &mdash; everything your business needs to dominate digitally.
+            </p>
+        </div>
+    </header>
+
+    <!-- Services Section -->
+    <section class="services-wrapper">
+        <div class="container">
+            
+            <!-- Service 1 -->
+            <div class="service-section">
+                <div class="service-layout reveal from-left">
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"></polyline><line x1="12" y1="19" x2="20" y2="19"></line></svg>
+                        </div>
+                        <h3>Robust Web Applications</h3>
+                        <p class="description">We build scalable, high-performance web applications tailored to your business logic. From complex dashboards to consumer-facing platforms, we handle the entire stack with security and speed in mind.</p>
+                        
+                        <div class="methodology-timeline">
+                            <div class="timeline-step">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-label">Discovery & Arch</div>
+                            </div>
+                            <div class="timeline-step">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-label">Backend Eng</div>
+                            </div>
+                            <div class="timeline-step">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-label">Frontend Dev</div>
+                            </div>
+                            <div class="timeline-step">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-label">Deploy & Monitor</div>
+                            </div>
+                        </div>
+
+                        <ul class="feature-list">
+                            <li>Django REST APIs</li>
+                            <li>React/Next.js frontend</li>
+                            <li>PostgreSQL + Redis</li>
+                            <li>Load balancing + auto-scaling</li>
+                            <li>Penetration testing</li>
+                            <li>CI/CD pipeline</li>
+                            <li>99.9% SLA uptime guarantee</li>
+                        </ul>
+
+                        <div class="tech-pills">
+                            <span class="tech-pill">Python</span>
+                            <span class="tech-pill">Django</span>
+                            <span class="tech-pill">React</span>
+                            <span class="tech-pill">PostgreSQL</span>
+                            <span class="tech-pill">Redis</span>
+                            <span class="tech-pill">AWS</span>
+                            <span class="tech-pill">Docker</span>
+                            <span class="tech-pill">Nginx</span>
+                        </div>
+
+                        <a href="#contact" class="btn btn-primary">Start Your Web Project &rarr;</a>
+                    </div>
+                    <div class="service-visual glass-card accent-cyan reveal from-right" style="height: 100%; min-height: 400px; display: flex; align-items: center; justify-content: center;">
+                        <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" style="opacity: 0.5;"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service 2 -->
+            <div class="service-section">
+                <div class="service-layout reversed reveal from-right">
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+                        </div>
+                        <h3>Data-Driven SEO</h3>
+                        <p class="description">Stop guessing and start ranking. We implement technical SEO, content clustering, and authoritative link building based on hard data to ensure you dominate the SERPs for high-intent keywords.</p>
+                        
+                        <div class="methodology-timeline">
+                            <div class="timeline-step">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-label">Audit & Analysis</div>
+                            </div>
+                            <div class="timeline-step">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-label">Keyword Strategy</div>
+                            </div>
+                            <div class="timeline-step">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-label">On-Page Opt</div>
+                            </div>
+                            <div class="timeline-step">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-label">Authority Building</div>
+                            </div>
+                        </div>
+
+                        <ul class="feature-list">
+                            <li>200-point technical audit</li>
+                            <li>Core Web Vitals fix</li>
+                            <li>Content cluster strategy</li>
+                            <li>Backlink acquisition</li>
+                            <li>Google Search Console setup</li>
+                            <li>Monthly rank tracking reports</li>
+                            <li>Schema markup</li>
+                        </ul>
+
+                        <div class="tech-pills">
+                            <span class="tech-pill">SEMrush</span>
+                            <span class="tech-pill">Ahrefs</span>
+                            <span class="tech-pill">GSC</span>
+                            <span class="tech-pill">GA4</span>
+                            <span class="tech-pill">Screaming Frog</span>
+                        </div>
+
+                        <a href="#contact" class="btn btn-outline">Get Free SEO Audit &rarr;</a>
+                    </div>
+                    <div class="service-visual glass-card accent-cyan reveal from-left" style="height: 100%; min-height: 400px; display: flex; align-items: center; justify-content: center;">
+                        <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" style="opacity: 0.5;"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service 3 -->
+            <div class="service-section">
+                <div class="service-layout reveal from-left">
+                    <div class="service-content purple-accent">
+                        <div class="service-icon purple">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect><line x1="7" y1="2" x2="7" y2="22"></line><line x1="17" y1="2" x2="17" y2="22"></line><line x1="2" y1="12" x2="22" y2="12"></line><line x1="2" y1="7" x2="7" y2="7"></line><line x1="2" y1="17" x2="7" y2="17"></line><line x1="17" y1="17" x2="22" y2="17"></line><line x1="17" y1="7" x2="22" y2="7"></line></svg>
+                        </div>
+                        <h3>High-Retention Video Editing</h3>
+                        <p class="description">We craft thumb-stopping videos designed for modern attention spans. From cinematic color grading to fast-paced Shorts, our edits maximize viewer retention and conversion.</p>
+                        
+                        <div class="methodology-timeline">
+                            <div class="timeline-step">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-label">Raw Footage</div>
+                            </div>
+                            <div class="timeline-step">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-label">Color Grading</div>
+                            </div>
+                            <div class="timeline-step">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-label">Motion Graphics</div>
+                            </div>
+                            <div class="timeline-step">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-label">Final Export</div>
+                            </div>
+                        </div>
+
+                        <ul class="feature-list">
+                            <li>DaVinci Resolve color grading</li>
+                            <li>Custom motion graphics</li>
+                            <li>YouTube SEO thumbnails</li>
+                            <li>Audio mastering</li>
+                            <li>Shorts/Reels optimization</li>
+                            <li>Brand kit integration</li>
+                            <li>48hr turnaround</li>
+                        </ul>
+
+                        <div class="tech-pills">
+                            <span class="tech-pill">DaVinci Resolve</span>
+                            <span class="tech-pill">After Effects</span>
+                            <span class="tech-pill">Premiere Pro</span>
+                            <span class="tech-pill">Canva Pro</span>
+                        </div>
+
+                        <a href="#contact" class="btn btn-primary" style="background: var(--purple); color: white;">View Video Portfolio &rarr;</a>
+                    </div>
+                    <div class="service-visual glass-card accent-purple reveal from-right" style="height: 100%; min-height: 400px; display: flex; align-items: center; justify-content: center;">
+                        <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="var(--purple)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" style="opacity: 0.5;"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service 4 -->
+            <div class="service-section">
+                <div class="service-layout reversed reveal from-right">
+                    <div class="service-content purple-accent">
+                        <div class="service-icon purple">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+                        </div>
+                        <h3>Professional Photo Editing</h3>
+                        <p class="description">Flawless imagery that sells. Whether you need bulk e-commerce processing or high-end lifestyle composites, our design team delivers pixel-perfect results that elevate your brand.</p>
+                        
+                        <div class="methodology-timeline">
+                            <div class="timeline-step">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-label">Brief</div>
+                            </div>
+                            <div class="timeline-step">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-label">Editing</div>
+                            </div>
+                            <div class="timeline-step">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-label">QA Review</div>
+                            </div>
+                            <div class="timeline-step">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-label">Delivery</div>
+                            </div>
+                        </div>
+
+                        <ul class="feature-list">
+                            <li>Background removal & replacement</li>
+                            <li>Color consistency batching</li>
+                            <li>Amazon/Flipkart optimization</li>
+                            <li>Lifestyle composite creation</li>
+                            <li>A+ Content design</li>
+                            <li>Product infographics</li>
+                            <li>24hr delivery</li>
+                        </ul>
+
+                        <div class="tech-pills">
+                            <span class="tech-pill">Photoshop</span>
+                            <span class="tech-pill">Lightroom</span>
+                            <span class="tech-pill">Illustrator</span>
+                            <span class="tech-pill">Figma</span>
+                        </div>
+
+                        <a href="#contact" class="btn btn-outline" style="border-color: var(--purple); color: var(--text-light);">Start Photo Editing Project &rarr;</a>
+                    </div>
+                    <div class="service-visual glass-card accent-purple reveal from-left" style="height: 100%; min-height: 400px; display: flex; align-items: center; justify-content: center;">
+                        <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="var(--purple)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" style="opacity: 0.5;"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path><path d="M2 12h20"></path></svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service 5 -->
+            <div class="service-section">
+                <div class="service-layout reveal from-left">
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon></svg>
+                        </div>
+                        <h3>Digital Marketing & Paid Ads</h3>
+                        <p class="description">Data-driven performance marketing focused on one metric: Return on Ad Spend (ROAS). We manage end-to-end campaigns across the platforms that matter most to your target audience.</p>
+                        
+                        <div class="methodology-timeline">
+                            <div class="timeline-step">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-label">Research</div>
+                            </div>
+                            <div class="timeline-step">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-label">Campaign Setup</div>
+                            </div>
+                            <div class="timeline-step">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-label">Optimization</div>
+                            </div>
+                            <div class="timeline-step">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-label">Scale</div>
+                            </div>
+                        </div>
+
+                        <ul class="feature-list">
+                            <li>Meta + Google Ads management</li>
+                            <li>WhatsApp Business API</li>
+                            <li>Email automation (Mailchimp/Klaviyo)</li>
+                            <li>Conversion rate optimization</li>
+                            <li>A/B testing</li>
+                            <li>GA4 attribution modeling</li>
+                            <li>ROAS reporting</li>
+                        </ul>
+
+                        <div class="tech-pills">
+                            <span class="tech-pill">Meta Ads</span>
+                            <span class="tech-pill">Google Ads</span>
+                            <span class="tech-pill">WhatsApp API</span>
+                            <span class="tech-pill">Mailchimp</span>
+                            <span class="tech-pill">GA4</span>
+                            <span class="tech-pill">Hotjar</span>
+                        </div>
+
+                        <a href="#contact" class="btn btn-primary">Launch Your Campaign &rarr;</a>
+                    </div>
+                    <div class="service-visual glass-card accent-cyan reveal from-right" style="height: 100%; min-height: 400px; display: flex; align-items: center; justify-content: center;">
+                        <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" style="opacity: 0.5;"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service 6 -->
+            <div class="service-section">
+                <div class="service-layout reversed reveal from-right">
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                        </div>
+                        <h3>Security & Penetration Testing</h3>
+                        <p class="description">Protect your assets before the breach. Our ethical hackers rigorously test your applications and infrastructure to identify and patch vulnerabilities before malicious actors find them.</p>
+                        
+                        <div class="methodology-timeline">
+                            <div class="timeline-step">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-label">Recon</div>
+                            </div>
+                            <div class="timeline-step">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-label">Vuln Scan</div>
+                            </div>
+                            <div class="timeline-step">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-label">Exploitation</div>
+                            </div>
+                            <div class="timeline-step">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-label">Hardening</div>
+                            </div>
+                        </div>
+
+                        <ul class="feature-list">
+                            <li>OWASP Top 10 testing</li>
+                            <li>API endpoint security</li>
+                            <li>SQL injection & XSS testing</li>
+                            <li>Django security hardening</li>
+                            <li>CSRF/CORS configuration</li>
+                            <li>Detailed pentest report</li>
+                            <li>Remediation support</li>
+                        </ul>
+
+                        <div class="tech-pills">
+                            <span class="tech-pill">Burp Suite</span>
+                            <span class="tech-pill">OWASP ZAP</span>
+                            <span class="tech-pill">Nmap</span>
+                            <span class="tech-pill">Metasploit</span>
+                            <span class="tech-pill">Nikto</span>
+                        </div>
+
+                        <a href="#contact" class="btn btn-outline">Request Security Audit &rarr;</a>
+                    </div>
+                    <div class="service-visual glass-card accent-cyan reveal from-left" style="height: 100%; min-height: 400px; display: flex; align-items: center; justify-content: center;">
+                        <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" style="opacity: 0.5;"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+
+    <!-- Why Choose Us -->
+    <section class="section" style="background: rgba(255,255,255,0.02);">
+        <div class="container">
+            <h2 class="text-center reveal">Why Indian Businesses Choose DAAT</h2>
+            
+            <div class="why-us-grid">
+                <div class="glass-card reveal">
+                    <h4 style="color: var(--cyan); margin-bottom: 1rem;">✦ India-Based Expertise</h4>
+                    <p class="text-muted">We understand Indian market nuances, GST compliance, and local payment ecosystems.</p>
+                </div>
+                <div class="glass-card reveal">
+                    <h4 style="color: var(--cyan); margin-bottom: 1rem;">✦ End-to-End Ownership</h4>
+                    <p class="text-muted">One agency for code, content, and campaigns &mdash; no coordination overhead.</p>
+                </div>
+                <div class="glass-card reveal">
+                    <h4 style="color: var(--cyan); margin-bottom: 1rem;">✦ Transparent Pricing</h4>
+                    <p class="text-muted">All prices in INR. No hidden costs. GST invoices provided.</p>
+                </div>
+                <div class="glass-card reveal">
+                    <h4 style="color: var(--cyan); margin-bottom: 1rem;">✦ Results Guaranteed</h4>
+                    <p class="text-muted">We offer milestone-based billing &mdash; you pay when results are delivered.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Overview -->
+    <section class="process-section">
+        <div class="container">
+            <h2 class="text-center reveal">How We Work</h2>
+            
+            <div class="process-timeline reveal">
+                <div class="process-step">
+                    <div class="process-num">1</div>
+                    <h4>Discovery Call</h4>
+                    <p>Understanding your goals, tech stack, and timelines</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-num">2</div>
+                    <h4>Custom Proposal</h4>
+                    <p>Detailed SOW with deliverables, milestones, and pricing</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-num">3</div>
+                    <h4>Execution & Updates</h4>
+                    <p>Weekly progress reports, Slack/WhatsApp updates</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-num">4</div>
+                    <h4>Delivery & Support</h4>
+                    <p>30-day post-delivery support included on all projects</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lead Magnet / CTA -->
+    <section id="contact" class="section">
+        <div class="container">
+            <div class="glass-card accent-cyan text-center reveal" style="padding: 4rem 2rem; max-width: 800px; margin: 0 auto;">
+                <h2>Ready to Engineer<br><span class="text-gradient">Your Growth?</span></h2>
+                <p class="text-muted" style="margin-bottom: 2rem;">Let's discuss how we can scale your digital presence.</p>
+                
+                <form class="contact-form" style="max-width: 500px; margin: 0 auto; text-align: left;">
+                    <div class="form-group" style="margin-bottom: 1.5rem;">
+                        <input type="text" placeholder="Name" class="form-control" style="width: 100%; padding: 1rem; background: var(--bg); border: 1px solid var(--border); color: white; border-radius: 8px;">
+                    </div>
+                    <div class="form-group" style="margin-bottom: 1.5rem;">
+                        <input type="email" placeholder="Email" class="form-control" style="width: 100%; padding: 1rem; background: var(--bg); border: 1px solid var(--border); color: white; border-radius: 8px;">
+                    </div>
+                    <div class="form-group" style="margin-bottom: 1.5rem;">
+                        <select class="form-control" style="width: 100%; padding: 1rem; background: var(--bg); border: 1px solid var(--border); color: white; border-radius: 8px; appearance: none;">
+                            <option value="">Select Service Interest</option>
+                            <option value="web">Web Application Development</option>
+                            <option value="seo">Data-Driven SEO</option>
+                            <option value="video">Video Editing & Production</option>
+                            <option value="photo">Photo Editing & Design</option>
+                            <option value="marketing">Digital Marketing</option>
+                            <option value="security">Security & VAPT</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">Book Free Consultation &rarr;</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    </main>
+
+    <!-- ── Footer ─────────────────────────────────────────────── -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="nav-logo" style="margin-bottom:0">
+                        <div class="nav-logo-icon">DA</div>
+                        DAAT Services
+                    </a>
+                    <p>Engineering digital growth for Indian businesses. From secure code to stunning content — all under one roof.</p>
+                    <div class="footer-socials">
+                        <a href="#" class="social-btn" aria-label="X / Twitter">𝕏</a>
+                        <a href="#" class="social-btn" aria-label="LinkedIn">in</a>
+                        <a href="#" class="social-btn" aria-label="Instagram">✦</a>
+                        <a href="#" class="social-btn" aria-label="YouTube">▶</a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h5>Services</h5>
+                    <div class="footer-links">
+                        <a href="services.html" class="footer-link">Web Applications</a>
+                        <a href="services.html" class="footer-link">SEO</a>
+                        <a href="services.html" class="footer-link">Video Editing</a>
+                        <a href="services.html" class="footer-link">Photo Editing</a>
+                        <a href="services.html" class="footer-link">Digital Marketing</a>
+                        <a href="services.html" class="footer-link">Security / VAPT</a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h5>Products</h5>
+                    <div class="footer-links">
+                        <a href="products.html" class="footer-link">Analytics Pro</a>
+                        <a href="products.html" class="footer-link">SEO Auditor</a>
+                        <a href="products.html" class="footer-link">SecureCheck</a>
+                        <a href="products.html" class="footer-link">DAAT Studio</a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h5>Company</h5>
+                    <div class="footer-links">
+                        <a href="education.html" class="footer-link">Education</a>
+                        <a href="portfolio.html" class="footer-link">Portfolio</a>
+                        <a href="pricing.html"   class="footer-link">Pricing</a>
+                        <a href="contact.html"   class="footer-link">Contact</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 DAAT Services. All rights reserved. | GST: 07AAACI1234F1ZX</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Refund Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
+

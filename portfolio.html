@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio & Case Studies | DAAT Services — Digital Agency India</title>
+  <meta name="description" content="Explore DAAT Services' portfolio of web engineering, SEO, video production, and digital marketing projects. Real results for real Indian businesses.">
+  <meta property="og:title" content="Portfolio | DAAT Services">
+  <meta property="og:description" content="Case studies from India's premier full-stack digital agency.">
+  <meta property="og:image" content="assets/hero_bg.jpg">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/components.css">
+  <!-- Google Analytics 4 — replace G-XXXXXXXXXX with your Measurement ID -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script> -->
+</head>
+<body>
+<div class="cursor-glow"></div>
+<div class="progress-bar"></div>
+
+<!-- ── Navigation ────────────────────────────────────────── -->
+<nav class="nav" id="main-nav" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo" aria-label="DAAT Services Home">
+      <div class="nav-logo-icon" aria-hidden="true">DA</div>
+      DAAT Services
+    </a>
+    <div class="nav-links" role="list">
+      <a href="index.html"    class="nav-link" role="listitem">Home</a>
+      <a href="services.html" class="nav-link" role="listitem">Services</a>
+      <a href="products.html" class="nav-link" role="listitem">Products</a>
+      <a href="education.html" class="nav-link" role="listitem">Education</a>
+      <a href="portfolio.html" class="nav-link active" role="listitem">Portfolio</a>
+      <a href="pricing.html"  class="nav-link" role="listitem">Pricing</a>
+      <a href="contact.html"  class="nav-link" role="listitem">Contact</a>
+    </div>
+    <div class="nav-actions">
+      <a href="contact.html" class="btn btn-primary btn-sm">Start Your Project</a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Drawer -->
+<div class="nav-drawer" id="nav-drawer" aria-hidden="true">
+  <div class="nav-drawer-links">
+    <a href="index.html"     class="nav-drawer-link">Home</a>
+    <a href="services.html"  class="nav-drawer-link">Services</a>
+    <a href="products.html"  class="nav-drawer-link">Products</a>
+    <a href="education.html" class="nav-drawer-link">Education</a>
+    <a href="portfolio.html" class="nav-drawer-link">Portfolio</a>
+    <a href="pricing.html"   class="nav-drawer-link">Pricing</a>
+    <a href="contact.html"   class="nav-drawer-link">Contact</a>
+  </div>
+  <a href="contact.html" class="btn btn-primary" style="width:100%;justify-content:center">Start Your Project →</a>
+</div>
+
+<main class="page-wrapper">
+
+  <!-- ── Page Hero ─────────────────────────────────────────── -->
+  <section class="page-hero">
+    <div class="container">
+      <div style="max-width:700px">
+        <div class="section-eyebrow">// Our Work</div>
+        <h1>Portfolio &amp; Case<br>Studies That <span class="text-gradient">Prove Results</span></h1>
+        <p class="hero-sub" style="margin:1.5rem 0 2rem;max-width:560px">
+          Not just deliverables — measurable outcomes. Every project below includes
+          the problem, our approach, and the numbers we moved.
+        </p>
+        <nav aria-label="Breadcrumb" style="font-size:0.8rem;color:var(--text-muted)">
+          <a href="index.html" style="color:var(--text-muted);transition:color 0.2s">Home</a>
+          <span style="margin:0 0.5rem;opacity:0.4">›</span>
+          <span style="color:var(--cyan)">Portfolio</span>
+        </nav>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Filter + Portfolio Grid ────────────────────────────── -->
+  <section class="section" style="padding-top:2rem">
+    <div class="container">
+      <!-- Filter Tabs -->
+      <div class="filter-tabs" role="tablist" aria-label="Portfolio categories">
+        <button class="filter-tab active" data-filter="all" role="tab" aria-selected="true">All Projects</button>
+        <button class="filter-tab" data-filter="web" role="tab" aria-selected="false">Web Engineering</button>
+        <button class="filter-tab" data-filter="seo" role="tab" aria-selected="false">SEO</button>
+        <button class="filter-tab" data-filter="video" role="tab" aria-selected="false">Video Production</button>
+        <button class="filter-tab" data-filter="creative" role="tab" aria-selected="false">Creative</button>
+        <button class="filter-tab" data-filter="marketing" role="tab" aria-selected="false">Marketing</button>
+      </div>
+
+      <!-- Portfolio Grid (rendered by portfolio.js) -->
+      <div class="portfolio-grid stagger-container" id="portfolio-grid"></div>
+    </div>
+  </section>
+
+  <!-- ── Results Overview ────────────────────────────────────── -->
+  <section class="section-sm" style="background:rgba(0,0,0,0.15);border-top:1px solid var(--glass-border);border-bottom:1px solid var(--glass-border)">
+    <div class="container">
+      <div class="stats-grid stagger-container">
+        <div class="glass-card stat-card reveal">
+          <div class="stat-number text-cyan">
+            <span data-count="150" data-suffix="+">150+</span>
+          </div>
+          <div class="stat-label">Projects Completed</div>
+        </div>
+        <div class="glass-card stat-card reveal">
+          <div class="stat-number">
+            <span data-count="98" data-suffix="%">98%</span>
+          </div>
+          <div class="stat-label">Client Satisfaction</div>
+        </div>
+        <div class="glass-card stat-card reveal">
+          <div class="stat-number text-gradient" style="-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;background-image:linear-gradient(135deg,#C9952A,#C0392B)">
+            <span data-count="12" data-suffix="Cr+">₹12Cr+</span>
+          </div>
+          <div class="stat-label">Revenue Generated for Clients</div>
+        </div>
+        <div class="glass-card stat-card reveal">
+          <div class="stat-number text-cyan">
+            <span data-count="4" data-suffix=".9★">4.9★</span>
+          </div>
+          <div class="stat-label">Average Client Rating</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Testimonials ─────────────────────────────────────────── -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-eyebrow">// Client Testimonials</div>
+        <h2>What Our Clients<br><span class="text-gradient">Are Saying</span></h2>
+        <p>Don't take our word for it — hear from the founders and CTOs we've partnered with.</p>
+      </div>
+
+      <div class="testimonials-grid stagger-container">
+        <!-- Testimonial 1 -->
+        <div class="glass-card testimonial-card reveal">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">
+            "DAAT rebuilt our entire fintech platform in 8 weeks — zero downtime, 92% faster
+            loads, and the security audit gave us SOC2 compliance. Genuinely exceptional team."
+          </p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">AM</div>
+            <div>
+              <div class="testimonial-name">Arjun Mehta</div>
+              <div class="testimonial-role">CTO, FinEdge Technologies · Bengaluru</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="glass-card testimonial-card reveal">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">
+            "Our YouTube channel exploded — 12k to 94k subscribers in 8 months. The video
+            quality and retention strategy they implemented was truly transformative."
+          </p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar" style="background:linear-gradient(135deg,#C0392B,#C9952A)">PS</div>
+            <div>
+              <div class="testimonial-name">Priya Sharma</div>
+              <div class="testimonial-role">Founder, TechTalks Media · Hyderabad</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="glass-card testimonial-card reveal">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">
+            "420% organic traffic in 6 months. I was skeptical, but the results speak
+            for themselves. DAAT's SEO team has become an extension of our marketing team."
+          </p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">RJ</div>
+            <div>
+              <div class="testimonial-name">Rohit Jain</div>
+              <div class="testimonial-role">Co-founder, StyleVault.in · Mumbai</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 4 -->
+        <div class="glass-card testimonial-card reveal">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">
+            "Our Amazon conversion rate went from 1.2% to 3.8% purely from better product
+            imagery. DAAT's photo editing team is world-class and delivers incredibly fast."
+          </p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar" style="background:linear-gradient(135deg,#C9952A,#22c55e)">NK</div>
+            <div>
+              <div class="testimonial-name">Neha Kapoor</div>
+              <div class="testimonial-role">Founder, OrganicRoots · Delhi NCR</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 5 -->
+        <div class="glass-card testimonial-card reveal">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">
+            "Cost per lead dropped from ₹3,200 to ₹840. DAAT's Meta Ads team restructured
+            our entire funnel and the WhatsApp nurturing they built converts like crazy."
+          </p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar" style="background:linear-gradient(135deg,#C0392B,#f59e0b)">SK</div>
+            <div>
+              <div class="testimonial-name">Sundar Kumar</div>
+              <div class="testimonial-role">CEO, SkillBridge Academy · Chennai</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 6 -->
+        <div class="glass-card testimonial-card reveal">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">
+            "SecureHR launched with zero vulnerabilities and passed our enterprise clients'
+            security assessments on the first try. DAAT's security architecture is airtight."
+          </p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">VP</div>
+            <div>
+              <div class="testimonial-name">Vikram Patel</div>
+              <div class="testimonial-role">Co-founder, SecureHR Solutions · Pune</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA ──────────────────────────────────────────────────── -->
+  <section class="lead-magnet section-sm">
+    <div class="container">
+      <div class="lead-magnet-inner">
+        <div class="section-eyebrow" style="justify-content:center">// Start Your Project</div>
+        <h2 style="margin-bottom:1rem">Ready to Be Our<br><span class="text-gradient">Next Case Study?</span></h2>
+        <p style="color:var(--text-body);margin-bottom:2rem;max-width:480px;margin-left:auto;margin-right:auto">
+          Tell us your challenge. We'll send a free audit and a custom proposal within 24 hours.
+        </p>
+        <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+          <a href="contact.html" class="btn btn-primary btn-lg">Start Your Project →</a>
+          <a href="pricing.html" class="btn btn-outline btn-lg">View Pricing</a>
+        </div>
+        <div class="trust-badges" style="margin-top:2rem">
+          <div class="trust-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            No commitments required
+          </div>
+          <div class="trust-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Response within 24 hours
+          </div>
+          <div class="trust-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            Free audit included
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ── Case Study Modal ──────────────────────────────────── -->
+<div class="modal-backdrop" id="case-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div class="modal">
+    <div class="modal-header">
+      <div>
+        <span id="modal-tag" class="label" style="display:block;margin-bottom:0.5rem"></span>
+        <h3 id="modal-title" style="margin-bottom:0.25rem"></h3>
+        <p id="modal-client" style="font-size:0.82rem;color:var(--text-muted)"></p>
+      </div>
+      <button class="modal-close" id="modal-close" aria-label="Close case study">✕</button>
+    </div>
+    <div class="modal-body" id="modal-body"></div>
+  </div>
+</div>
+
+<!-- ── Footer ─────────────────────────────────────────────── -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo" style="margin-bottom:0">
+          <div class="nav-logo-icon">DA</div>
+          DAAT Services
+        </a>
+        <p>Engineering digital growth for Indian businesses. From secure code to stunning content — all under one roof.</p>
+        <div class="footer-socials">
+          <a href="#" class="social-btn" aria-label="X / Twitter">𝕏</a>
+          <a href="#" class="social-btn" aria-label="LinkedIn">in</a>
+          <a href="#" class="social-btn" aria-label="Instagram">✦</a>
+          <a href="#" class="social-btn" aria-label="YouTube">▶</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Services</h5>
+        <div class="footer-links">
+          <a href="services.html" class="footer-link">Web Applications</a>
+          <a href="services.html" class="footer-link">SEO</a>
+          <a href="services.html" class="footer-link">Video Editing</a>
+          <a href="services.html" class="footer-link">Photo Editing</a>
+          <a href="services.html" class="footer-link">Digital Marketing</a>
+          <a href="services.html" class="footer-link">Security / VAPT</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Products</h5>
+        <div class="footer-links">
+          <a href="products.html" class="footer-link">Analytics Pro</a>
+          <a href="products.html" class="footer-link">SEO Auditor</a>
+          <a href="products.html" class="footer-link">SecureCheck</a>
+          <a href="products.html" class="footer-link">DAAT Studio</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <div class="footer-links">
+          <a href="index.html"     class="footer-link">About</a>
+          <a href="education.html" class="footer-link">Education</a>
+          <a href="portfolio.html" class="footer-link">Portfolio</a>
+          <a href="pricing.html"   class="footer-link">Pricing</a>
+          <a href="contact.html"   class="footer-link">Contact</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 DAAT Services. All rights reserved. | GST: 07AAACI1234F1ZX</p>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Refund Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/portfolio.js"></script>
+</body>
+</html>
+
