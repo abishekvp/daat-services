@@ -827,6 +827,21 @@
 
 .toggle-label.active { color: var(--text-primary); }
 
+.billing-toggle-container .toggle-label {
+  border: 1px solid var(--glass-border);
+  background: transparent;
+  font-family: inherit;
+  font-size: 0.85rem;
+  line-height: 1.25;
+  padding: 0.75rem 1.5rem;
+}
+
+.billing-toggle-container .toggle-label.active {
+  background: rgba(0, 240, 255, 0.1);
+  border-color: var(--cyan);
+  color: var(--text-primary);
+}
+
 .toggle-switch {
   width: 52px;
   height: 28px;

@@ -6,18 +6,22 @@
 const PRICING = {
   growth: {
     monthly: { web: 24999, seo: 9999, video: 14999, marketing: 19999 },
+    oneTime: { web: 9999, seo: 2000, video: 39999, marketing: 59999 },
   },
   professional: {
     monthly: { web: 59999, seo: 24999, video: 34999, marketing: 44999 },
+    oneTime: { web: 199999, seo: 99999, video: 89999, marketing: 129999 },
   },
   enterprise: {
     monthly: { web: 129999, seo: 54999, video: 74999, marketing: 94999 },
+    oneTime: { web: 399999, seo: 199999, video: 179999, marketing: 249999 },
   },
 };
 
 const ANNUAL_DISCOUNT = 0.20; // 20% off
-let isAnnual = false;
+let billingMode = 'monthly';
 let activeCategory = 'web';
+const priceTimers = {};
 
 document.addEventListener('DOMContentLoaded', () => {
   initBillingToggle();
@@ -38,17 +42,35 @@ function formatINR(amount) {
 
 /* ─── Billing Toggle ──────────────────────────────────────── */
 function initBillingToggle() {
-  const toggle = document.getElementById('billing-toggle');
-  const labelMonthly = document.getElementById('label-monthly');
-  const labelAnnual  = document.getElementById('label-annual');
-  if (!toggle) return;
+  const modeButtons = document.querySelectorAll('[data-billing-mode]');
+  if (!modeButtons.length) return;
 
-  toggle.addEventListener('click', () => {
-    isAnnual = !isAnnual;
-    toggle.classList.toggle('on', isAnnual);
-    labelMonthly.classList.toggle('active', !isAnnual);
-    labelAnnual.classList.toggle('active', isAnnual);
-    updatePrices();
+  modeButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      billingMode = button.dataset.billingMode;
+      setBillingMode(button);
+      updatePrices();
+    });
+
+    button.addEventListener('keydown', event => {
+      if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
+      event.preventDefault();
+      const currentIndex = [...modeButtons].indexOf(button);
+      const offset = event.key === 'ArrowRight' ? 1 : -1;
+      const nextIndex = (currentIndex + offset + modeButtons.length) % modeButtons.length;
+      modeButtons[nextIndex].focus();
+      billingMode = modeButtons[nextIndex].dataset.billingMode;
+      setBillingMode(modeButtons[nextIndex]);
+      updatePrices();
+    });
+  });
+}
+
+function setBillingMode(selectedButton) {
+  document.querySelectorAll('[data-billing-mode]').forEach(button => {
+    const isSelected = button === selectedButton;
+    button.classList.toggle('active', isSelected);
+    button.setAttribute('aria-selected', String(isSelected));
   });
 }
 
@@ -70,19 +92,21 @@ function updatePrices() {
     const monthly = PRICING[tier].monthly[activeCategory];
     if (!monthly) return;
 
-    const annual     = Math.round(monthly * (1 - ANNUAL_DISCOUNT));
-    const display    = isAnnual ? annual : monthly;
-    const original   = isAnnual ? monthly : null;
+    const annual = Math.round(monthly * (1 - ANNUAL_DISCOUNT));
+    const oneTime = PRICING[tier].oneTime[activeCategory];
+    const display = billingMode === 'annual' ? annual : billingMode === 'oneTime' ? oneTime : monthly;
 
     const priceEl    = document.querySelector(`[data-price="${tier}"]`);
     const origEl     = document.querySelector(`[data-original="${tier}"]`);
     const saveEl     = document.querySelector(`[data-save="${tier}"]`);
     const periodEl   = document.querySelector(`[data-period="${tier}"]`);
+    const noteEl     = document.querySelector(`[data-Life-Time-note="${tier}"]`);
 
     if (priceEl) {
+      clearTimeout(priceTimers[tier]);
       priceEl.style.transform = 'scale(0.9)';
       priceEl.style.opacity   = '0';
-      setTimeout(() => {
+      priceTimers[tier] = setTimeout(() => {
         priceEl.textContent = formatINR(display).replace('₹', '');
         priceEl.style.transform = 'scale(1)';
         priceEl.style.opacity   = '1';
@@ -90,17 +114,23 @@ function updatePrices() {
     }
 
     if (origEl) {
-      origEl.style.display = isAnnual ? 'block' : 'none';
-      if (isAnnual) origEl.textContent = formatINR(monthly) + '/mo';
+      origEl.style.display = billingMode === 'annual' ? 'block' : 'none';
+      if (billingMode === 'annual') origEl.textContent = formatINR(monthly) + '/mo';
     }
 
     if (saveEl) {
-      saveEl.style.display = isAnnual ? 'inline-block' : 'none';
-      if (isAnnual) saveEl.textContent = `Save ${ANNUAL_DISCOUNT * 100}%`;
+      saveEl.style.display = billingMode === 'annual' ? 'inline-block' : 'none';
+      if (billingMode === 'annual') saveEl.textContent = `Save ${ANNUAL_DISCOUNT * 100}%`;
     }
 
     if (periodEl) {
-      periodEl.textContent = isAnnual ? '/mo (billed annually)' : '/month';
+      periodEl.textContent = billingMode === 'annual'
+        ? '/mo (billed annually)'
+        : billingMode === 'oneTime' ? '/Life-Time' : '/month';
+    }
+
+    if (noteEl) {
+      noteEl.style.display = billingMode === 'oneTime' && activeCategory === 'web' ? 'block' : 'none';
     }
   });
 }
@@ -125,11 +155,13 @@ function initRazorpayButtons() {
     btn.addEventListener('click', () => {
       const tier = btn.dataset.razorpay;
       const monthly = PRICING[tier]?.monthly[activeCategory];
-      if (!monthly) return;
+      const oneTime = PRICING[tier]?.oneTime[activeCategory];
+      if (!monthly || (billingMode === 'oneTime' && !oneTime)) return;
 
-      const amount = isAnnual
+      const amount = billingMode === 'annual'
         ? Math.round(monthly * (1 - ANNUAL_DISCOUNT)) * 12
-        : monthly;
+        : billingMode === 'oneTime' ? oneTime : monthly;
+      const billingLabel = billingMode === 'annual' ? 'Annual' : billingMode === 'oneTime' ? 'Life-Time' : 'Monthly';
 
       // TODO: Replace with real Razorpay order creation API call
       // POST /api/payments/create-order/ → { order_id, amount, currency }
@@ -140,7 +172,7 @@ function initRazorpayButtons() {
         amount: amount * 100, // paise
         currency: 'INR',
         name: 'DAAT Services',
-        description: `${tier.charAt(0).toUpperCase() + tier.slice(1)} Plan — ${isAnnual ? 'Annual' : 'Monthly'}`,
+        description: `${tier.charAt(0).toUpperCase() + tier.slice(1)} Plan — ${billingLabel}`,
         image: 'assets/logo.png',
         prefill: { name: '', email: '', contact: '' },
         theme: { color: '#00F0FF' },

@@ -102,14 +102,13 @@
                     <button class="pricing-cat-tab px-6 py-2 rounded-full font-medium transition-colors" data-cat="marketing">Digital Marketing</button>
                 </div>
 
-                <div class="billing-toggle-container flex items-center gap-4 bg-gray-900 px-6 py-3 rounded-full border border-gray-800">
-                    <span id="label-monthly" class="toggle-label active font-medium text-white transition-colors cursor-pointer">Monthly</span>
-                    <div id="billing-toggle" class="toggle-switch relative w-12 h-6 bg-gray-700 rounded-full cursor-pointer transition-colors">
-                        <div class="toggle-knob absolute left-1 top-1 w-4 h-4 bg-white rounded-full transition-transform"></div>
-                    </div>
-                    <span id="label-annual" class="toggle-label font-medium text-gray-400 transition-colors cursor-pointer">Annual</span>
-                    <span class="badge bg-green-500/20 text-green-400 text-xs px-2 py-1 rounded mono-text">Save 20%</span>
+                <div class="billing-toggle-container flex items-center gap-3 flex-wrap justify-center" role="tablist" aria-label="Billing frequency">
+                    <button class="toggle-label active font-medium transition-colors cursor-pointer px-5 py-2 rounded-full" data-billing-mode="monthly" role="tab" aria-selected="true">Monthly</button>
+                    <button class="toggle-label font-medium transition-colors cursor-pointer px-5 py-2 rounded-full" data-billing-mode="annual" role="tab" aria-selected="false">Annual</button>
+                    <button class="toggle-label font-medium transition-colors cursor-pointer px-5 py-2 rounded-full" data-billing-mode="oneTime" role="tab" aria-selected="false">Life-Time</button>
+                    <!-- <span class="badge bg-green-500/20 text-green-400 text-xs px-2 py-1 rounded mono-text">Annual saves 20%</span> -->
                 </div>
+                <p class="text-sm text-gray-400 text-center max-w-2xl">Life-Time website and web application purchases include delivery without a maintenance subscription and lifetime support for application issues. Feature upgrades and major updates may be quoted separately.</p>
 
             </div>
         </section>
@@ -132,6 +131,7 @@
                             </div>
                         </div>
                         <p class="pricing-desc text-gray-400 text-sm h-12">Perfect for startups and small businesses ready to establish their digital presence.</p>
+                        <p class="pricing-Life-Time-note text-xs text-cyan mt-3" data-Life-Time-note="growth" style="display:none">No maintenance subscription. Lifetime issue support included; upgrades and major updates are quoted separately.</p>
                     </div>
                     
                     <ul class="feature-list flex-1 flex flex-col gap-4 mb-8 text-sm">
@@ -168,6 +168,7 @@
                             </div>
                         </div>
                         <p class="pricing-desc text-gray-400 text-sm h-12">For growing businesses that need consistent output and dedicated expertise.</p>
+                        <p class="pricing-Life-Time-note text-xs text-cyan mt-3" data-Life-Time-note="professional" style="display:none">No maintenance subscription. Lifetime issue support included; upgrades and major updates are quoted separately.</p>
                     </div>
                     
                     <ul class="feature-list flex-1 flex flex-col gap-4 mb-8 text-sm">
@@ -203,6 +204,7 @@
                             </div>
                         </div>
                         <p class="pricing-desc text-gray-400 text-sm h-12">Full-service partnership for established businesses with complex, ongoing requirements.</p>
+                        <p class="pricing-Life-Time-note text-xs text-cyan mt-3" data-Life-Time-note="enterprise" style="display:none">No maintenance subscription. Lifetime issue support included; upgrades and major updates are quoted separately.</p>
                     </div>
                     
                     <ul class="feature-list flex-1 flex flex-col gap-4 mb-8 text-sm">
@@ -361,7 +363,7 @@
                     </div>
                 </div>
 
-                <div class="max-w-2xl mx-auto glass-card p-8 rounded-xl relative overflow-hidden">
+                <!-- <div class="max-w-2xl mx-auto glass-card p-8 rounded-xl relative overflow-hidden">
                     <div class="absolute top-0 right-0 p-4">
                         <span class="text-xs text-gray-500 font-bold tracking-widest uppercase">Powered by Razorpay</span>
                     </div>
@@ -379,7 +381,7 @@
                     </div>
 
                     <p class="text-xs text-gray-500 border-t border-gray-800 pt-6">All transactions are secured by 256-bit SSL encryption. GST-compliant invoices are auto-generated and emailed within 1 hour of payment.</p>
-                </div>
+                </div> -->
             </div>
         </section>
 
@@ -520,7 +522,7 @@
                         <a href="services.html" class="footer-link">Video Editing</a>
                         <a href="services.html" class="footer-link">Photo Editing</a>
                         <a href="services.html" class="footer-link">Digital Marketing</a>
-                        <a href="services.html" class="footer-link">Security / VAPT</a>
+
                     </div>
                 </div>
                 <div class="footer-col">

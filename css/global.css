@@ -216,6 +216,7 @@ p {
   content: '';
   position: absolute;
   inset: 0;
+  pointer-events: none;
   background: var(--grad-card);
   opacity: 0;
   transition: opacity var(--trans-slow);
